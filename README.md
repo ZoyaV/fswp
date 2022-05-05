@@ -12,9 +12,6 @@ ____
 ├── models
 │   ├── unet #unet trainer
 │   └── convlstm #convlstm trainer
-├── _posts
-│   ├── 2007-10-29-why-every-programmer-should-play-nethack.md
-│   └── 2009-04-26-barcamp-boston-4-roundup.md
 └── utils
 ```
 
