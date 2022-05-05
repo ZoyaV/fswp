@@ -1,7 +1,10 @@
 # FSWP - fast wave-front prediction
-## Install
 ____
-#### Project structure
+## Install
+
+##### 1. Project structure
+First of all, make sure the project structure matches the one below:
+
 ```
 ├── fswp_train.yml
 ├── fswp_run.yml
@@ -15,12 +18,20 @@ ____
 └── utils
 ```
 
-#### Download data
+##### 2. Download the data
+Download convlstm training data, and data unet training. Put the received datasets in the **data** folder.
 
-#### Download models
+##### 3. Download models
+Download the unet model and put it in a folder
+*checkpoints/unet*
+
+Download the convlstm model and put it in a folder
+*checkpoints/convlstm*
 
 ### Start train 
 
+> train.sh -fswp_train.yml
 ### Test on data
 
+> run.sh -fswp_run.yml
 ### Test on simulator 
