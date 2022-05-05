@@ -28,6 +28,9 @@ Download the unet model and put it in a folder
 Download the convlstm model and put it in a folder
 *checkpoints/convlstm*
 
+##### 3. Download requirements.txt
+> pip install -r requirements.txt
+
 ### Start train 
 
 > train.sh -fswp_train.yml
