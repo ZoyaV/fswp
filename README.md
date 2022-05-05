@@ -29,8 +29,9 @@ Download the convlstm model and put it in a folder
 *checkpoints/convlstm*
 
 ##### 4. Download requirements.txt
-> pip install -r requirements.txt
-
+```bash
+pip install -r requirements.txt
+```
 ### Start train 
 
 > train.sh -fswp_train.yml
