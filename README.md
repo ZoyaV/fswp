@@ -2,7 +2,7 @@
 # Install
 ____
 #### Project structure
-.
+```
 ├── fswp_train.yml
 ├── fswp_run.yml
 ├── _data
@@ -16,7 +16,7 @@ ____
 │   ├── 2007-10-29-why-every-programmer-should-play-nethack.md
 │   └── 2009-04-26-barcamp-boston-4-roundup.md
 └── utils
-
+```
 
 #### Download data
 
