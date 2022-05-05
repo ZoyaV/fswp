@@ -1,0 +1,25 @@
+image:
+  size_lstm: 128
+  size_unet: 64
+  dataset_lenghtn: 20000
+
+device:
+  to: cuda
+
+convlstm:
+  epoches: 100
+  change_lr: [50,90]
+  lr: [1e-4, 1e-5, 1e-6]
+  train_path: '../../data/original.pickle'
+  val_path: '../../data/original.pickle'
+  test_path: '../../data/original.pickle'
+  checkpoints_path: '/home/zoya/PycharmProjects/fswp/checkpoints/convlstm'
+
+unet:
+  epoches: 200
+  change_lr: [  15,80 ]
+  lr: [  1e-3, 1e-4, 1e-5]
+  train_path: '/home/zoya/PycharmProjects/fswp/data/data_for_unet4.pickle'
+  batch_size: 32
+  val_batch_size: 16
+  checkpoints_path: '/home/zoya/PycharmProjects/fswp/checkpoints/unet'

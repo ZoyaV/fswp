@@ -1,0 +1,29 @@
+image:
+  size_lstm: 128
+  size_unet: 64
+  dataset_lenghtn: 5000
+
+device:
+  to: cpu
+
+convlstm:
+  epoches: 100
+  change_lr: [50,90]
+  lr: [1e-4, 1e-5, 1e-6]
+  train_path: '../../data/original.pickle'
+  val_path: '../../data/original.pickle'
+  test_path: '../../data/original.pickle'
+  checkpoints_path: '/home/zoya/PycharmProjects/fswp/checkpoints/convlstm'
+  wights_path: '/home/zoya/PycharmProjects/fswp/checkpoints/convlstm/CONV_LSTM_run_AntonioFields_1f68f605-dcff-46a3-8b37-b838a5e06f17.pth'
+
+
+unet:
+  epoches: 200
+  change_lr: [  15,80 ]
+  lr: [  1e-3, 1e-4, 1e-5]
+  train_path: '/home/zoya/PycharmProjects/fswp/data/data_for_unet5.pickle'
+  batch_size: 32
+  val_batch_size: 16
+  checkpoints_path: '/home/zoya/PycharmProjects/fswp/checkpoints/unet'
+  wights_path: '/home/zoya/PycharmProjects/fswp/checkpoints/unet/UNET_run_MarilynGuerra_d9a642e4-d9e0-4da8-becb-87272cfb570b.pth'
+
