@@ -33,9 +33,11 @@ Download the convlstm model and put it in a folder
 pip install -r requirements.txt
 ```
 ### Start train 
-
-> train.sh -fswp_train.yml
+```bash
+train.sh -fswp_train.yml
+```
 ### Test on data
-
-> run.sh -fswp_run.yml
+```bash
+run.sh -fswp_run.yml
+```
 ### Test on simulator 
