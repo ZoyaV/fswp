@@ -1,5 +1,5 @@
-# fswp - fast wave-front prediction
-# Install
+# FSWP - fast wave-front prediction
+## Install
 ____
 #### Project structure
 ```
