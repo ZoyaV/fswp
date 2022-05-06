@@ -15,7 +15,8 @@ First of all, make sure the project structure matches the one below:
 ├── models
 │   ├── unet #unet trainer
 │   └── convlstm #convlstm trainer
-└── utils
+├── utils
+└── docker 
 ```
 
 ##### 2. Download the data
