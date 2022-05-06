@@ -32,6 +32,28 @@ Download the convlstm model and put it in a folder
 ```bash
 pip install -r requirements.txt
 ```
+
+## Docker 
+We use [crafting](https://pypi.org/project/crafting/) to automate our experiments. 
+You can find an example of running such a pipeline in ```run.yaml``` file. 
+You need to have installed Docker, Nvidia drivers, and crafting package. 
+
+The crafting package is available in PyPI:
+```bash
+pip install crafting
+```
+
+
+To build the image run the command below in ```docker``` folder:
+```bash
+sh build.sh
+```
+
+To run an experiment specify target command in ```command``` field in ```run.yaml``` file and call crafting:
+```bash
+crafting ../docker_run.yaml
+```
+
 ### Start train 
 ```bash
 train.sh -fswp_train.yml
