@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys
 sys.path.append("../")
+sys.path.append("../docker/")
 from base import BaseTrainer
 from in_preprocessing import ImageProcessor
 from torch.nn.functional import normalize
@@ -88,10 +89,19 @@ class UnetTrainer(BaseTrainer):
                 X_val_batch = self.X_val[batch_indexes].to(self.args["device"]["to"])
                 y_val_batch = self.y_val[batch_indexes].to(self.args["device"]["to"])
 
+
                 preds_val = self.model.forward(X_val_batch.detach())
 
                 loss_value_val = torch.sqrt(torch.sqrt(self.loss_f(preds_val.detach(), y_val_batch.detach())))
                 val_loss += loss_value_val
+            plt.subplot(1, 2, 1)
+            plt.imshow(X_val_batch[0, 0])
+            plt.colorbar(location='bottom', pad=0.05)
+            plt.subplot(1, 2, 2)
+            plt.imshow(X_val_batch[0, 1])
+            plt.colorbar(location='bottom', pad=0.05)
+            plt.suptitle("Input example")
+            plt.show()
             b = datetime.datetime.now()
             delta = b - a
             fps = len(self.X_val) / delta.total_seconds()
