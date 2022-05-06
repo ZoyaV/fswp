@@ -1,0 +1,16 @@
+container:
+  image: "fust_solar_wavefront_prediction:latest"
+  command: "python3 utils/predict_on_tdataset.py"
+  runtime: nvidia
+  environment:
+    - NVIDIA_VISIBLE_DEVICES=all
+    - CUDA_VISIBLE_DEVICES=0
+  #  command: bash
+code:
+  folder: "../"
+
+host_config:
+  runtime: nvidia
+  shm_size: 4g
+  mem_limit: 32g
+

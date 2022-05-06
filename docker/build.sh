@@ -1,0 +1,1 @@
+docker build -t fust_solar_wavefront_prediction . --build-arg CACHEBUST=$(date +%s)
