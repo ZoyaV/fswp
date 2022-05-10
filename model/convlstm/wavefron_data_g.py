@@ -9,14 +9,17 @@ from training_seting import opt
 
 def calc_split_settings(data, ep_len = 25):
     total_len = len(data[0])
+    print(total_len)
     image_shape = data[0][0].shape
     axes = len(data)
     blocks = total_len//ep_len
   #  print("total_len", total_len)
    # print("total blocks", blocks)
-    total_batches = blocks // delimetr(blocks,minv=10, maxv=15)[0]
+   # print(blocks, delimetr(blocks,minv=9, maxv=15))
+    total_batches = blocks // delimetr(blocks,minv=9, maxv=15)[0]
   #  print("total_batches", total_batches)
     one_batch = total_batches // delimetr(total_batches,minv=4, maxv=12)[-1]
+   # print(one_batch)
   #  print("one_batch", one_batch)
   #  print(blocks//one_batch, one_batch, ep_len)
     total = blocks//one_batch* one_batch*ep_len
@@ -90,6 +93,6 @@ class WaveFrontLoaderNorm(WaveFrontLoader):
               #  data[ax] = data[ax].numpy()
                 mins = data[ax].min(axis=(1,2,3,4))
                 maxs = data[ax].max(axis=(1,2,3,4))
-                data[ax] = (data[ax] - mins.reshape(7,1,1,1,1))/(maxs.reshape(7,1,1,1,1) - mins.reshape(7,1,1,1,1))
+                data[ax] = (data[ax] - mins.reshape(-1,1,1,1,1))/(maxs.reshape(-1,1,1,1,1) - mins.reshape(-1,1,1,1,1))
               #  data[ax] = torch.from_numpy(data[ax]).float()
             yield data
