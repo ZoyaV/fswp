@@ -1,6 +1,6 @@
 container:
   image: "fust_solar_wavefront_prediction:latest"
-  command: "python3 utils/predict_on_tdataset.py"
+  command: "python3 utils/predict_on_tdataset.py configs/run_star_fswp.yaml"
   runtime: nvidia
   environment:
     - NVIDIA_VISIBLE_DEVICES=all
