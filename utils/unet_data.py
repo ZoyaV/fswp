@@ -11,9 +11,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import cv2
 
+SIZE = 64
 def add_mask(img):
-    width, height = 128,128
-    x, y = np.asarray([128,128]) // 2
+    width, height = SIZE,SIZE
+    x, y = np.asarray([SIZE,SIZE]) // 2
     R = x.copy()
     X = np.arange(width).reshape(width, 1)
     Y = np.arange(height).reshape(1, height)
@@ -40,7 +41,7 @@ def build_unet_data(model_path, train_path = "",  data_upload_path  = ""):
     imgs3 = []
     coeffs = []
 
-    for i in range(30):
+    for i in range(100):
         print(f"Loaded {i}/10 ...")
         import gc
         unet_data = None
@@ -57,6 +58,8 @@ def build_unet_data(model_path, train_path = "",  data_upload_path  = ""):
             t = 0
             for batch in next(unet_data):
            #     print(len(batch))
+              #  print(batch[2].shape)
+               # raise
                 train_batch = torch.from_numpy(batch[2]).float()
                 loss = model.predict(train_batch.detach().to("cuda"), t)
                 t+=1
@@ -97,11 +100,11 @@ def build_unet_data(model_path, train_path = "",  data_upload_path  = ""):
     imgs3 = np.asarray(imgs3)
     coeffs = np.asarray(coeffs)
 
-    arr_size = len(coeffs.ravel()) //(128*128)
-    phases = phases.reshape(-1, 128, 128)
-    imgs1 = imgs1.reshape(-1, 128, 128)
-    imgs2 = imgs2.reshape(-1, 128, 128)
-    imgs3 = imgs3.reshape(-1, 128, 128)
+    arr_size = len(coeffs.ravel()) //(SIZE*SIZE)
+    phases = phases.reshape(-1, SIZE, SIZE)
+    imgs1 = imgs1.reshape(-1, SIZE, SIZE)
+    imgs2 = imgs2.reshape(-1, SIZE, SIZE)
+    imgs3 = imgs3.reshape(-1, SIZE, SIZE)
     coeffs = np.zeros(imgs3.shape[0])
     print(imgs1.shape)
     print("Example of data: ")
@@ -139,7 +142,8 @@ def build_unet_data(model_path, train_path = "",  data_upload_path  = ""):
 
 
 if __name__ == "__main__":
-    data = "/home/zoya/PycharmProjects/fswp/checkpoints/convlstm/CONV_LSTM_run_JordanRiddick_fd8d1d77-d634-4f6c-a150-fb6a5a94642e.pth"
-    data = "/home/zoya/PycharmProjects/fswp/checkpoints/convlstm/CONV_LSTM_run_AntonioFields_1f68f605-dcff-46a3-8b37-b838a5e06f17.pth"
+    #data = "/home/zoya/PycharmProjects/fswp/checkpoints/convlstm/CONV_LSTM_run_JordanRiddick_fd8d1d77-d634-4f6c-a150-fb6a5a94642e.pth"
+   # data = "/home/zoya/PycharmProjects/fswp/checkpoints/convlstm/CONV_LSTM_run_AntonioFields_1f68f605-dcff-46a3-8b37-b838a5e06f17.pth"
+    data = "/home/zoya/PycharmProjects/fswp/checkpoints/convlstm/CONV_LSTM_star_run_RobertAquilar_87d9194e-b083-4513-9421-d303c2630a50.pth"
     build_unet_data(data,
-                    train_path="../data/original.pickle", data_upload_path="../data/data_for_unet5.pickle")
+                    train_path="../data/data_pointstar_mixed_1_100x100.pickle", data_upload_path="../data/data_for_unet_star.pickle")
