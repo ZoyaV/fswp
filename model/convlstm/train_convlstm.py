@@ -27,8 +27,8 @@ class ConvLstmTrainer(BaseTrainer):
         self.optimizer = torch.optim.AdamW(self.model.parameters(), lr=self.lr[0])
         return
 
-    def load_config(self):
-       # super().load_config()
+    def load_configs(self):
+        self.args = super().load_configs()
         self.save_path = self.args['convlstm']['checkpoints_path']
 
     def load_dataset(self):
