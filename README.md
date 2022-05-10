@@ -52,15 +52,19 @@ sh build.sh
 
 To run an experiment specify target command in ```command``` field in ```run.yaml``` file and call crafting:
 ```bash
-crafting ../docker_run.yaml
+crafting configs/docker_run.yaml
 ```
 
-### Start train 
+## Start train 
 ```bash
 train.sh -fswp_train.yml
 ```
+## RUN
 ### Test on data
 ```bash
-run.sh -fswp_run.yml
+python3 utils/predict_on_tdataset.py ./configs/run_solar_fswp.yaml
 ```
 ### Test on simulator 
+```bash
+python3 utils/run_on_env.py configs/run_star_fswp.yaml False checkpoints/convlstm/CONV_LSTM_run_EricWright_94ed9438-8fae-4fc8-8afa-85409d0c6f46.pth  
+```
