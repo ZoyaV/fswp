@@ -15,11 +15,13 @@ convlstm:
   test_path: '../../data/original.pickle'
   checkpoints_path: '/home/zoya/PycharmProjects/fswp/checkpoints/convlstm'
 
+
 unet:
   epoches: 200
   change_lr: [  15,80 ]
   lr: [  1e-3, 1e-4, 1e-5]
-  train_path: '/home/zoya/PycharmProjects/fswp/data/data_for_unet4.pickle'
+  train_path: '../data/data_for_unet_star.pickle'
   batch_size: 32
   val_batch_size: 16
-  checkpoints_path: '/home/zoya/PycharmProjects/fswp/checkpoints/unet'
+  checkpoints_path: '../checkpoints/unet'
+
